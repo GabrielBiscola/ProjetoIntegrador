@@ -67,7 +67,7 @@ def msg_sensor(client, userdata, msg):
                 umidade = umidade,
                 co2 = co2,
                 poeira = poeira,
-                tempo_registro = tempo_registro
+                tempo_registro = tempo_oficial
             )
 
             # Adicionar novo registro ao banco
@@ -203,7 +203,7 @@ def to_json_sensor(self):
         "umidade": float(self.umidade),
         "co2": float(self.co2),
         "poeira": float(self.poeira),
-        "tempo_registro": self.tempo_registro.strftime("%Y-%m-%d %H:%S") if self.tempo_registro else None
+        "tempo_registro": self.tempo_registro.strftime('%Y-%m-%d %H:%M:%S') if self.tempo_registro else None
     }
 
 def generate_response(status, keyContent, content, msg=False):
